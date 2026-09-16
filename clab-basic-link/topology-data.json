@@ -1,0 +1,103 @@
+{
+  "name": "basic-link",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-2676ed2050d9",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "pc01": {
+      "index": "0",
+      "shortname": "pc01",
+      "longname": "clab-basic-link-pc01",
+      "fqdn": "pc01.basic-link.io",
+      "group": "",
+      "labdir": "/home/rzbhright/CLAB-ORIGIN/network-suport-lab/clab-basic-link/pc01",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-mgmt-net-bridge": "br-2676ed2050d9",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/rzbhright/CLAB-ORIGIN/network-suport-lab/clab-basic-link/pc01",
+        "clab-node-longname": "clab-basic-link-pc01",
+        "clab-node-name": "pc01",
+        "clab-node-type": "",
+        "clab-owner": "rzbhright",
+        "clab-topo-file": "/home/rzbhright/CLAB-ORIGIN/network-suport-lab/basic-link.clab.yml",
+        "containerlab": "basic-link"
+      },
+      "port-bindings": [
+      ]
+    },
+    "pc02": {
+      "index": "1",
+      "shortname": "pc02",
+      "longname": "clab-basic-link-pc02",
+      "fqdn": "pc02.basic-link.io",
+      "group": "",
+      "labdir": "/home/rzbhright/CLAB-ORIGIN/network-suport-lab/clab-basic-link/pc02",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-mgmt-net-bridge": "br-2676ed2050d9",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/rzbhright/CLAB-ORIGIN/network-suport-lab/clab-basic-link/pc02",
+        "clab-node-longname": "clab-basic-link-pc02",
+        "clab-node-name": "pc02",
+        "clab-node-type": "",
+        "clab-owner": "rzbhright",
+        "clab-topo-file": "/home/rzbhright/CLAB-ORIGIN/network-suport-lab/basic-link.clab.yml",
+        "containerlab": "basic-link"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "pc01",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:21:30:94",
+          "peer": "z"
+        },
+        "z": {
+          "node": "pc02",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:13:9f:62",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}
