@@ -5,14 +5,23 @@ topology:
     pc01:
       kind: linux
       image: alpine:latest
+      exec:
+        - ip addr add 10.10.10.10/24 dev eth1
+        - ip route add 10.20.20.0/24 via 10.10.10.1
 
     r1:
       kind: linux
-      image: quay.io/frrouting/frr:v8.4.1
+      image: quay.io/frrouting/frr:8.4.1
+      exec:
+        - ip addr add 10.10.10.1/24 dev eth1
+        - ip addr add 10.20.20.1/24 dev eth2
 
     pc02:
       kind: linux
       image: alpine:latest
+      exec:
+        - ip addr add 10.20.20.10/24 dev eth1
+        - ip route add 10.10.10.0/24 via 10.20.20.1
 
   links:
     - endpoints: ["pc01:eth1", "r1:eth1"]
