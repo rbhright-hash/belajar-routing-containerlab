@@ -1,0 +1,19 @@
+name: basic-routing
+
+topology:
+  nodes:
+    pc01:
+      kind: linux
+      image: alpine:latest
+
+    r1:
+      kind: linux
+      image: quay.io/frrouting/frr:v8.4.1
+
+    pc02:
+      kind: linux
+      image: alpine:latest
+
+  links:
+    - endpoints: ["pc01:eth1", "r1:eth1"]
+    - endpoints: ["r1:eth2", "pc02:eth1"]
